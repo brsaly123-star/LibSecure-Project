@@ -1,5 +1,0 @@
-[build]
-builder = "herokuish"
-
-[deploy]
-start = "heroku-php-apache"
