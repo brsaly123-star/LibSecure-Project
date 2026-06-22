@@ -1,8 +1,12 @@
 [providers.php]
-server = "apache"
-
-[phases.setup]
-cmds = ["apt-get update && apt-get install -y libapache2-mod-php"]
+server = "nginx"
 
 [phases.build]
 cmds = ["mkdir -p assets/img/book_covers && chmod -R 777 assets/img/book_covers"]
+
+[experimental]
+nginxConfig = """
+location / {
+    try_files $uri $uri/ $uri.php?$args;
+}
+"""
