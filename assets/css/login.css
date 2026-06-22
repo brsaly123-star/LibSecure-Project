@@ -1,0 +1,218 @@
+:root {
+    --primary: #7258f4;
+    --primary-hover: #5d45db;
+    --bg-body: #f7f8fd;
+    --text-main: #2b2b42;
+    --text-muted: #8d8d9b;
+    --border-color: #e2e2f0;
+    --white: #ffffff;
+    --danger: #ef4444;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Background dengan gambar perpustakaan dan overlay gradient ungu agar form tetap terbaca */
+    background: linear-gradient(rgba(43, 43, 66, 0.7), rgba(114, 88, 244, 0.8)), 
+                url('https://images.unsplash.com/photo-1549675584-91f19337af3d?q=80&w=2000&auto=format&fit=crop') center/cover fixed no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiasan background abstrak agar tidak terlalu polos */
+body::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+}
+body::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+    bottom: -150px;
+    right: -100px;
+    z-index: 0;
+}
+
+/* Form diletakkan tepat di tengah layar */
+.form-card {
+    background: var(--white);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px; /* Lebar maksimal form yang pas */
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.app-logo {
+    width: 48px;
+    height: 48px;
+    background: #ede9fe;
+    color: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+}
+
+.form-card h2 {
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+    font-size: 1.6rem;
+}
+
+.form-card p.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+}
+
+/* Custom Floating Border Label Input */
+.input-group-custom {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group-custom label {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: white;
+    padding: 0 6px;
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.input-group-custom input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s;
+    background: transparent;
+}
+
+.input-group-custom input:focus {
+    box-shadow: 0 0 0 3px rgba(114, 88, 244, 0.15);
+}
+
+.input-group-custom.unfocused input {
+    border-color: var(--border-color);
+}
+
+.input-group-custom.unfocused label {
+    color: var(--text-muted);
+}
+
+.forgot-link {
+    text-align: right;
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-top: -10px;
+    margin-bottom: 24px;
+}
+.forgot-link:hover {
+    color: var(--primary);
+}
+
+.btn-login {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(114, 88, 244, 0.2);
+}
+
+.btn-login:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(114, 88, 244, 0.3);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+.divider:not(:empty)::before { margin-right: .5em; }
+.divider:not(:empty)::after { margin-left: .5em; }
+
+.btn-google {
+    background: white;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+.btn-google:hover {
+    background: #f8f9fa;
+}
+.btn-google img {
+    width: 18px;
+}
+
+.alert-custom {
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+}
+.alert-error { background: #fef2f2; color: var(--danger); border-left: 4px solid var(--danger); }
+.alert-warn  { background: #fffbeb; color: #d97706; border-left: 4px solid #d97706; }
